@@ -1,5 +1,5 @@
-import { Box, Text, Link } from '@radix-ui/themes';
-import Image from 'next/image';
+import { Box, Text, Link } from "@radix-ui/themes";
+import Image from "next/image";
 
 export function Footer() {
   return (

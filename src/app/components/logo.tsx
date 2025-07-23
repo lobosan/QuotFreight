@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function Logo() {
   const { resolvedTheme } = useTheme();
@@ -18,7 +18,7 @@ export function Logo() {
 
   return (
     <Image
-      src={resolvedTheme === 'dark' ? '/logos/superapp_logo_dark.svg' : '/logos/superapp_logo.svg'}
+      src={resolvedTheme === "dark" ? "/logos/superapp_logo_dark.svg" : "/logos/superapp_logo.svg"}
       className="logo"
       alt="SuperApp logo"
       width={144}

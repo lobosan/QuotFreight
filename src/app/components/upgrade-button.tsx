@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Button } from '@radix-ui/themes';
-import redirectToBillingPortal from '@/actions/redirectToBillingPortal';
+import { Button } from "@radix-ui/themes";
+import redirectToBillingPortal from "@/actions/redirectToBillingPortal";
 
 export function UpgradeButton({ children, path }: { children: React.ReactNode; path: string }) {
   const handleClick = () => {
@@ -9,7 +9,7 @@ export function UpgradeButton({ children, path }: { children: React.ReactNode; p
   };
 
   return (
-    <Button variant="soft" style={{ cursor: 'pointer' }} onClick={handleClick}>
+    <Button variant="soft" style={{ cursor: "pointer" }} onClick={handleClick}>
       {children}
     </Button>
   );

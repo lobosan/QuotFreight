@@ -1,10 +1,10 @@
-import { Button, Flex, Heading, Box, Text } from '@radix-ui/themes';
-import { workos } from '@/app/api/workos';
-import { GeneratePortalLinkIntent } from '@workos-inc/node';
-import { withAuth } from '@workos-inc/authkit-nextjs';
-import Link from 'next/link';
-import { UpgradeButton } from '@/app/components/upgrade-button';
-import { DashboardContainer } from '@/app/components/layout/dashboard-container';
+import { Button, Flex, Heading, Box, Text } from "@radix-ui/themes";
+import { workos } from "@/app/api/workos";
+import { GeneratePortalLinkIntent } from "@workos-inc/node";
+import { withAuth } from "@workos-inc/authkit-nextjs";
+import Link from "next/link";
+import { UpgradeButton } from "@/app/components/upgrade-button";
+import { DashboardContainer } from "@/app/components/layout/dashboard-container";
 
 export default async function SettingsPage() {
   const { organizationId } = await withAuth({ ensureSignedIn: true });
@@ -25,7 +25,7 @@ export default async function SettingsPage() {
           Setup or modify an existing SSO connection
         </Text>
         <Box>
-          <Button variant="soft" style={{ cursor: 'pointer' }}>
+          <Button variant="soft" style={{ cursor: "pointer" }}>
             <Link href={workOSAdminPortalLink}>Configure</Link>
           </Button>
         </Box>

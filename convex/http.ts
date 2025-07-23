@@ -1,15 +1,15 @@
-import { httpRouter } from 'convex/server';
-import { httpAction } from './_generated/server';
-import { internal } from './_generated/api';
+import { httpRouter } from "convex/server";
+import { httpAction } from "./_generated/server";
+import { internal } from "./_generated/api";
 
 const http = httpRouter();
 
 http.route({
-  path: '/workos-webhook',
-  method: 'POST',
+  path: "/workos-webhook",
+  method: "POST",
   handler: httpAction(async (ctx, request) => {
     const bodyText = await request.text();
-    const sigHeader = String(request.headers.get('workos-signature'));
+    const sigHeader = String(request.headers.get("workos-signature"));
 
     try {
       await ctx.runAction(internal.workos.verifyWebhook, {
@@ -20,14 +20,14 @@ http.route({
       const { data, event } = JSON.parse(bodyText);
 
       switch (event) {
-        case 'user.created': {
+        case "user.created": {
           await ctx.runMutation(internal.users.create, {
             email: data.email,
             workos_id: data.id,
           });
           break;
         }
-        case 'user.deleted': {
+        case "user.deleted": {
           const user = await ctx.runQuery(internal.users.getByWorkOSId, {
             workos_id: data.id,
           });
@@ -42,7 +42,7 @@ http.route({
 
           break;
         }
-        case 'user.updated': {
+        case "user.updated": {
           const user = await ctx.runQuery(internal.users.getByWorkOSId, {
             workos_id: data.id,
           });
@@ -59,14 +59,14 @@ http.route({
 
           break;
         }
-        case 'organization.created': {
+        case "organization.created": {
           await ctx.runMutation(internal.organizations.create, {
             name: data.name,
             workos_id: data.id,
           });
           break;
         }
-        case 'organization.deleted': {
+        case "organization.deleted": {
           const organization = await ctx.runQuery(internal.organizations.getByWorkOSId, {
             workos_id: data.id,
           });
@@ -82,7 +82,7 @@ http.route({
 
           break;
         }
-        case 'organization.updated': {
+        case "organization.updated": {
           const organization = await ctx.runQuery(internal.organizations.getByWorkOSId, {
             workos_id: data.id,
           });
@@ -104,21 +104,21 @@ http.route({
         }
       }
 
-      return new Response(JSON.stringify({ status: 'success' }), {
+      return new Response(JSON.stringify({ status: "success" }), {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     } catch (e) {
       if (e instanceof Error) {
-        if (e.message.includes('Unhandled event type')) {
+        if (e.message.includes("Unhandled event type")) {
           return new Response(
             JSON.stringify({
-              status: 'error',
+              status: "error",
               message: e.message,
             }),
             {
               status: 422,
-              headers: { 'Content-Type': 'application/json' },
+              headers: { "Content-Type": "application/json" },
             },
           );
         }
@@ -126,12 +126,12 @@ http.route({
 
       return new Response(
         JSON.stringify({
-          status: 'error',
-          message: 'Internal server error',
+          status: "error",
+          message: "Internal server error",
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
         },
       );
     }

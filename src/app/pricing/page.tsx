@@ -1,7 +1,7 @@
-import { Flex, Heading, Strong, Text } from '@radix-ui/themes';
-import { Pricing } from '../components/pricing';
-import { withAuth } from '@workos-inc/authkit-nextjs';
-import { SignInButton } from '../components/sign-in-button';
+import { Flex, Heading, Strong, Text } from "@radix-ui/themes";
+import { Pricing } from "../components/pricing";
+import { withAuth } from "@workos-inc/authkit-nextjs";
+import { SignInButton } from "../components/sign-in-button";
 
 export default async function PricingPage() {
   const { user } = await withAuth();

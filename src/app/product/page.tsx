@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Text, Strong, Separator, Button } from '@radix-ui/themes';
-import { ArrowRightIcon } from '@radix-ui/react-icons';
-import Image from 'next/image';
+import { Box, Flex, Heading, Text, Strong, Separator, Button } from "@radix-ui/themes";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 
 /**
  * Product page, this is where you'd put your company's product.
@@ -17,7 +17,7 @@ export default async function ProductPage() {
       mr="9"
       pt="7"
       pb="9"
-      style={{ borderTop: '1px solid lightgray' }}
+      style={{ borderTop: "1px solid lightgray" }}
     >
       <Flex direction="column" gap="5" align="start" justify="center" flexGrow="1" width="50%">
         <Text size="1" color="gray">
@@ -66,12 +66,12 @@ export default async function ProductPage() {
         width="50%"
         height="75vh"
         position="relative"
-        style={{ borderRadius: 'var(--radius-3)', backgroundColor: 'var(--gray-3)' }}
+        style={{ borderRadius: "var(--radius-3)", backgroundColor: "var(--gray-3)" }}
       >
         <Image
           src="/product/enterprise_blanket.png"
           alt="Enterprise Ready Blanket"
-          style={{ padding: '2em' }}
+          style={{ padding: "2em" }}
           fill
           objectFit="contain"
         />

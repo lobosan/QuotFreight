@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { Avatar, Box, IconButton, DropdownMenu, Flex, Text } from '@radix-ui/themes';
-import Link from 'next/link';
-import { PersonIcon } from '@radix-ui/react-icons';
-import { usePathname } from 'next/navigation';
-import { User } from '@workos-inc/node';
-import authkitSignOut from '@/actions/signOut';
-import { useState } from 'react';
+import { Avatar, Box, IconButton, DropdownMenu, Flex, Text } from "@radix-ui/themes";
+import Link from "next/link";
+import { PersonIcon } from "@radix-ui/react-icons";
+import { usePathname } from "next/navigation";
+import { User } from "@workos-inc/node";
+import authkitSignOut from "@/actions/signOut";
+import { useState } from "react";
 
 export function UserNav({ user, role }: { user: User; role: string | undefined }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isAdmin = role === 'admin';
-  const isDashboard = pathname.startsWith('/dashboard');
+  const isAdmin = role === "admin";
+  const isDashboard = pathname.startsWith("/dashboard");
 
   const handleSignOutClick = async () => {
     await authkitSignOut();
@@ -22,7 +22,7 @@ export function UserNav({ user, role }: { user: User; role: string | undefined }
   return (
     <DropdownMenu.Root open={open} onOpenChange={setOpen}>
       <DropdownMenu.Trigger>
-        <IconButton variant="ghost" style={{ position: 'relative', cursor: 'pointer' }}>
+        <IconButton variant="ghost" style={{ position: "relative", cursor: "pointer" }}>
           <Avatar
             size="2"
             radius="medium"

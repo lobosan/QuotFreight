@@ -1,9 +1,9 @@
-import { Box, Flex, Link, Text } from '@radix-ui/themes';
-import { UserNav } from './user-nav';
-import ThemeToggle from './theme-toggle';
-import { withAuth } from '@workos-inc/authkit-nextjs';
-import { SignInButton } from '../sign-in-button';
-import { Logo } from '../logo';
+import { Box, Flex, Link, Text } from "@radix-ui/themes";
+import { UserNav } from "./user-nav";
+import ThemeToggle from "./theme-toggle";
+import { withAuth } from "@workos-inc/authkit-nextjs";
+import { SignInButton } from "../sign-in-button";
+import { Logo } from "../logo";
 
 export async function Header() {
   const { user, role } = await withAuth();

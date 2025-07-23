@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Button, Callout, Dialog, Flex, Text, TextField } from '@radix-ui/themes';
-import { InfoCircledIcon } from '@radix-ui/react-icons';
-import { useRouter } from 'next/navigation';
+import React, { useState } from "react";
+import { Button, Callout, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 /**
  * The 'subscriptionLevel' prop is the name of the subscription plan and is directly tied to the Stripe price lookup key.
@@ -13,8 +13,8 @@ import { useRouter } from 'next/navigation';
 export function ModalDialog({ subscriptionLevel, userId }: { subscriptionLevel: string; userId: string }) {
   const router = useRouter();
 
-  const [orgName, setOrgName] = useState('');
-  const [error, setError] = useState('');
+  const [orgName, setOrgName] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -23,16 +23,16 @@ export function ModalDialog({ subscriptionLevel, userId }: { subscriptionLevel: 
 
     setLoading(true);
 
-    if (orgName === '') {
-      setError('Please fill out Organization name before submitting.');
+    if (orgName === "") {
+      setError("Please fill out Organization name before submitting.");
       setLoading(false);
       return;
     }
 
     // Call API to create a new organization and subscribe to plan
     // The user will be redirected to Stripe Checkout
-    const res = await fetch('/api/subscribe', {
-      method: 'POST',
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
       body: JSON.stringify({ userId, orgName, subscriptionLevel: subscriptionLevel.toLowerCase() }),
     });
 
@@ -49,7 +49,7 @@ export function ModalDialog({ subscriptionLevel, userId }: { subscriptionLevel: 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
-        <Button onClick={() => setError('')}>Subscribe to {subscriptionLevel}</Button>
+        <Button onClick={() => setError("")}>Subscribe to {subscriptionLevel}</Button>
       </Dialog.Trigger>
       <Dialog.Content>
         <Dialog.Title>Subscribe to {subscriptionLevel}</Dialog.Title>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, ReactNode, useEffect } from 'react';
-import { Box, Button, Tooltip } from '@radix-ui/themes';
-import { CheckIcon, CopyIcon } from '@radix-ui/react-icons';
-import { useTheme } from 'next-themes';
+import { useState, ReactNode, useEffect } from "react";
+import { Box, Button, Tooltip } from "@radix-ui/themes";
+import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
+import { useTheme } from "next-themes";
 
 export default function CopyButton({ children, copyValue }: { children: ReactNode; copyValue: string }) {
   const [copied, setCopied] = useState(false);
@@ -20,17 +20,17 @@ export default function CopyButton({ children, copyValue }: { children: ReactNod
     try {
       await navigator.clipboard.writeText(copyValue);
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      console.error("Failed to copy: ", err);
     }
   };
 
-  const color: 'gray' | 'blue' = mounted ? (resolvedTheme === 'dark' ? 'gray' : 'blue') : 'blue';
+  const color: "gray" | "blue" = mounted ? (resolvedTheme === "dark" ? "gray" : "blue") : "blue";
 
   return (
     <Box>
-      <Button variant="surface" color={color} size="3" onClick={copyToClipboard} style={{ cursor: 'pointer' }}>
+      <Button variant="surface" color={color} size="3" onClick={copyToClipboard} style={{ cursor: "pointer" }}>
         {children}
-        <Tooltip content={copied ? 'Copied' : 'Copy'}>{copied ? <CheckIcon /> : <CopyIcon />}</Tooltip>
+        <Tooltip content={copied ? "Copied" : "Copy"}>{copied ? <CheckIcon /> : <CopyIcon />}</Tooltip>
       </Button>
     </Box>
   );

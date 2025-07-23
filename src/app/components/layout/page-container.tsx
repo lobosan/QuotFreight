@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, ScrollArea } from '@radix-ui/themes';
+import React from "react";
+import { Box, ScrollArea } from "@radix-ui/themes";
 
 export default function PageContainer({
   children,
