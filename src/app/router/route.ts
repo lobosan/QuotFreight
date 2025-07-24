@@ -1,6 +1,6 @@
 import { withAuth } from "@workos-inc/authkit-nextjs";
 import { redirect } from "next/navigation";
-import { workos } from "../api/workos";
+import { workos } from "@/app/api/workos";
 import { NextRequest } from "next/server";
 
 export const GET = async (request: NextRequest) => {

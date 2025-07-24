@@ -1,5 +1,5 @@
-import { stripe } from "../stripe";
-import { workos } from "../workos";
+import { stripe } from "@/app/api/stripe";
+import { workos } from "@/app/api/workos";
 import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {

@@ -1,7 +1,7 @@
 import { Box, Flex, Text, Heading } from "@radix-ui/themes";
 import { withAuth } from "@workos-inc/authkit-nextjs";
 import { redirect } from "next/navigation";
-import { DashboardContainer } from "../components/layout/dashboard-container";
+import { DashboardContainer } from "@/app/components/layout/dashboard-container";
 
 export default async function DashboardPage() {
   const session = await withAuth({ ensureSignedIn: true });

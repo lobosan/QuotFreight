@@ -1,4 +1,4 @@
-import { DashboardNav } from "../components/layout/DashboardNav/dashboard-nav";
+import { DashboardNav } from "@/app/components/layout/DashboardNav/dashboard-nav";
 import { Flex } from "@radix-ui/themes";
 
 import type { Metadata } from "next";
